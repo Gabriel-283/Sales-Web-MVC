@@ -1,0 +1,31 @@
+﻿@model SaleAplicationMVC.Models.Seller
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Seller</h4>
+<hr />
+
+<div class="row">
+    <div class=" col-md-4">
+        <form asp-action="Add">
+            <div
+                 <label asp-for="Name" class="control-label"></label>
+                 <input asp-for="Name" class="form-control"/>
+            </div>
+            <div
+                 <label asp-for="Email" class="control-label"></label>
+                 <input asp-for="Email" class="form-control"/>
+            </div>
+            <div
+                 <label asp-for="BirthDate" class="control-label"></label>
+                 <input asp-for="BirthDate" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-default">
+            </div>
+        </form>
+    </div>
+</div>

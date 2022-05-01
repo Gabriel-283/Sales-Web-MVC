@@ -1,7 +1,54 @@
-﻿
+﻿@model IEnumerable<SaleAplicationMVC.Models.Seller>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sellers";
 }
 
-<h2>Sellers Page</h2>
+<h2>@ViewData["Title"]</h2>
+
+<br>
+<a asp-action="Add"><button style="background: #069cc2; border-radius: 6px; padding: 8px; cursor: pointer; color: #fff; border: none; font-size: 16px;">Add</button></a>
+<br>
+
+<br>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<br>
 

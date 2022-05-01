@@ -40,3 +40,4 @@ C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netc
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Edit.cshtml.g.cs
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Index.cshtml.g.cs
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Index.cshtml.g.cs
+C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Add.cshtml.g.cs
