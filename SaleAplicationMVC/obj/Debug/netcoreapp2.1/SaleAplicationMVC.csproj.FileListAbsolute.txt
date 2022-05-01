@@ -1,4 +1,3 @@
-C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\SaleAplicationMVC.csproj.AssemblyReference.cache
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\SaleAplicationMVC.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\SaleAplicationMVC.AssemblyInfoInputs.cache
 C:\Users\Gabriel\source\repos\SaleAplicationMVC\SaleAplicationMVC\obj\Debug\netcoreapp2.1\SaleAplicationMVC.AssemblyInfo.cs
