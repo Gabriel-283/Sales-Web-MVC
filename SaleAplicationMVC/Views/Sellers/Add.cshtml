@@ -1,4 +1,4 @@
-﻿@model SaleAplicationMVC.Models.Seller
+﻿@model SaleAplicationMVC.Models.ViewModels.SellerFormViewModel
 @{
     ViewData["Title"] = "Add";
 }
@@ -12,19 +12,24 @@
     <div class=" col-md-4">
         <form asp-action="Add">
             <div
-                 <label asp-for="Name" class="control-label"></label>
-                 <input asp-for="Name" class="form-control"/>
+                 <label asp-for="Seller.Name" class="control-label"></label>
+                 <input asp-for="Seller.Name" class="form-control"/>
             </div>
             <div
-                 <label asp-for="Email" class="control-label"></label>
-                 <input asp-for="Email" class="form-control"/>
+                 <label asp-for="Seller.Email" class="control-label"></label>
+                 <input asp-for="Seller.Email" class="form-control"/>
             </div>
             <div
-                 <label asp-for="BirthDate" class="control-label"></label>
-                 <input asp-for="BirthDate" class="form-control"/>
+                 <label asp-for="Seller.BirthDate" class="control-label"></label>
+                 <input asp-for="Seller.BirthDate" class="form-control"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Add" class="btn btn-default">
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.DepartmentId" class="control-label"></label>
+                <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id",
+"Name"))" class="form-control"></select>
             </div>
         </form>
     </div>

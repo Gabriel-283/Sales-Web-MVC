@@ -5,16 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using SaleAplicationMVC.Services;
 using SaleAplicationMVC.Models;
+using SaleAplicationMVC.Models.ViewModels;
 
 namespace SaleAplicationMVC.Controllers
 {
     public class SellersController : Controller
     {
         private readonly SellerService _sellerService;
+        private readonly DeparmentService _departmentService;
 
-        public SellersController(SellerService sellerService)
+        public SellersController(SellerService sellerService, DeparmentService deparmentService)
         {
             _sellerService = sellerService;
+            _departmentService = deparmentService;
         }
 
         public IActionResult Index()
@@ -26,7 +29,9 @@ namespace SaleAplicationMVC.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            var departments = _departmentService.FindAll();
+            var vieModel = new SellerFormViewModel { Departments = departments };
+            return View(vieModel);
         }
 
         [HttpPost]
@@ -34,6 +39,30 @@ namespace SaleAplicationMVC.Controllers
         public IActionResult Add(Seller seller)
         {
             _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            _sellerService.Remove(id);
             return RedirectToAction(nameof(Index));
         }
     }
