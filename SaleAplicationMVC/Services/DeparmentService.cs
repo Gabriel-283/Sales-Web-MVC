@@ -1,4 +1,5 @@
-﻿using SaleAplicationMVC.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SaleAplicationMVC.Data;
 using SaleAplicationMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,12 @@ namespace SaleAplicationMVC.Services
 
         }
 
+        public string FindDepartmentById(int id)
+        {
+            string nameDepartment =  _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id).ToString();
 
+            return nameDepartment;
+        }
 
     }
 }

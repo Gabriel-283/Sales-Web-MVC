@@ -22,7 +22,6 @@ namespace SaleAplicationMVC.Controllers
 
         public IActionResult Index()
         {
-            _sellerService.ShowAll();
             var list = _sellerService.ShowAll();
             return View(list);
         }
@@ -57,6 +56,21 @@ namespace SaleAplicationMVC.Controllers
 
             return View(obj);
         }
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -65,5 +79,33 @@ namespace SaleAplicationMVC.Controllers
             _sellerService.Remove(id);
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit (Seller seller)
+        {
+            try
+            {
+            _sellerService.Update(seller);
+            return RedirectToAction(nameof(Index));
+
+            }
+            catch (Exception exception)
+            {
+
+                throw exception;
+            }
+            
+        }
+
+
+        public IActionResult Edit(int? id)
+        {
+            var obj = _sellerService.FindById(id.Value);
+            List<Department> departments = _departmentService.FindAll();
+            SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
+            return View(viewModel);
+        }
+
     }
 }

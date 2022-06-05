@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SaleAplicationMVC.Data;
+using SaleAplicationMVC.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +9,7 @@ namespace SaleAplicationMVC.Models
 {
     public class Department
     {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
@@ -30,5 +33,8 @@ namespace SaleAplicationMVC.Models
         {
             return Sellers.Sum(seller => seller.TotalSales(initial, final));
         }
+
+        
+        
     }
 }
